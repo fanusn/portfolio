@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Present vs Past — Fanus Michels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #F5F4F2; color: #111; }
+    .topbar { position: sticky; top: 0; z-index: 100; background: #F5F4F2; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 2rem; }
+    .topbar-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: #9E0D17 !important; text-decoration: none; }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .back-btn { font-size: 22px; font-weight: 700; color: #F5F4F2; text-decoration: none; line-height: 1; opacity: 0.9; }
+    .back-btn:hover { opacity: 1; }
+
+    .topbar-left { display: flex; align-items: center; gap: 2rem; }
+    .topbar-nav { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-link { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: #9E0D17 !important; text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
+    .nav-link:hover { opacity: 1; }
+    .lang-btn { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; color: #9E0D17; background: transparent; border: 1.5px solid #9E0D17; padding: 5px 16px; border-radius: 30px; cursor: pointer; appearance: none; outline: none; }
+
+    .page { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .project-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(36px, 6vw, 56px); color: #9E0D17; margin-bottom: 2rem; line-height: 1.1; }
+
+    /* CAROUSEL */
+    .carousel-wrap { margin-bottom: 1rem; }
+    .carousel-btn-img { background: transparent; border: none; width: 44px; height: 44px; cursor: pointer; flex-shrink: 0; padding: 0; opacity: 0.8; transition: opacity 0.2s; }
+    .carousel-btn-img:hover { opacity: 1; }
+    .carousel-btn-img img { width: 44px; height: 44px; object-fit: contain; }
+    .carousel-outer { display: flex; align-items: center; gap: 12px; }
+    .carousel { position: relative; width: 100%; border-radius: 14px; overflow: hidden; background: #F5F4F2; flex: 1; }
+    .carousel-track { display: flex; transition: transform 0.4s ease; direction: ltr; }
+    .carousel-slide { min-width: 100%; height: 0; padding-bottom: 59.78%; position: relative; flex-shrink: 0; background: #F5F4F2; }
+    .carousel-slide img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+    .carousel-btn { background: transparent; border: none; width: 44px; height: 44px; cursor: pointer; flex-shrink: 0; padding: 0; display: flex; align-items: center; justify-content: center; opacity: 0.8; transition: opacity 0.2s; }
+    .carousel-btn:hover { opacity: 1; }
+    .carousel-btn img { width: 44px; height: 44px; object-fit: contain; }
+    .carousel-dots { display: flex; flex-direction: row-reverse; justify-content: center; gap: 8px; margin: 14px 0 2.5rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; cursor: pointer; transition: background 0.2s; border: none; padding: 0; }
+    .dot.active { background: #9E0D17; }
+
+    .section-block { margin-bottom: 2.5rem; }
+    .section-block h2 { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 0.75rem; }
+    .section-block p { font-size: 15px; line-height: 1.8; color: #111; }
+    .tools { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tool-chip { font-size: 12px; padding: 5px 14px; border-radius: 30px; border: 1.5px solid #111; color: #111; font-weight: 500; }
+
+    footer { background: #F5F4F2; border-top: 0.5px solid rgba(0,0,0,0.08); padding: 1.5rem 2rem; }
+    .footer-inner { max-width: 760px; margin: 0 auto; }
+    .footer-copy { font-size: 13px; color: #aaa; }
+    @media (max-width: 560px) { .page { padding: 2rem 1.25rem 4rem; } .carousel-slide { height: 240px; } }
+  </style>
+</head>
+<body>
+<div id="page" style="direction:ltr;">
+      <div class="topbar">
+    <div class="topbar-left">
+      <a class="topbar-name" href="index.html">Fanus Michels</a>
+      <div class="topbar-nav">
+        <a class="nav-link" id="navAbout" href="index.html#about-section">About Me</a>
+        <a class="nav-link" id="navWork" href="index.html#work-section">Projects</a>
+      </div>
+    </div>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">HE</button>
+  </div>
+  </div>
+  </div>
+
+  <div class="page">
+    <div class="project-title" data-he="הווה לעומת עבר" data-en="Present vs Past">Present vs Past</div>
+
+        <div class="carousel-wrap">
+      <div class="carousel-outer">
+        <button class="carousel-btn-img" onclick="prevSlide()"><img src="back.png" alt="back" /></button>
+        <div class="carousel">
+          <div class="carousel-track" id="track">
+          <div class="carousel-slide"><img src="conjugation-1.jpeg" alt="c1" /></div>
+          <div class="carousel-slide"><img src="conjugation-2.jpeg" alt="c2" /></div>
+          <div class="carousel-slide"><img src="conjugation-3.jpeg" alt="c3" /></div>
+          <div class="carousel-slide"><img src="conjugation-4.jpeg" alt="c4" /></div>
+          </div>
+        </div>
+        <button class="carousel-btn-img" onclick="nextSlide()"><img src="next.png" alt="next" /></button>
+      </div>
+      <div class="carousel-dots">
+        <button class="dot active" onclick="goTo(0)"></button>
+        <button class="dot" onclick="goTo(1)"></button>
+        <button class="dot" onclick="goTo(2)"></button>
+        <button class="dot" onclick="goTo(3)"></button>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2 data-he="תיאור" data-en="About">About</h2>
+      <p data-he="המחשה אינטראקטיבית של זמן עבר בבניין פעל, גזרת ע\"ו — יחידה דיגיטלית לילדים הלומדים עברית כשפה שנייה בתפוצות. היחידה מאפשרת לתלמידים לתרגל צורות פועל בצורה חווייתית ומעורבת." data-en="An interactive visualization of past tense in Pa'al verb conjugation — a digital unit for children learning Hebrew as a second language in the diaspora. The unit allows students to practice verb forms in an engaging and experiential way.">An interactive visualization of past tense in Pa'al verb conjugation — a digital unit for children learning Hebrew as a second language in the diaspora. The unit allows students to practice verb forms in an engaging and experiential way.</p>
+    </div>
+
+    <div class="section-block">
+      <h2 data-he="כלים" data-en="Tools">Tools</h2>
+      <div class="tools">
+        <div class="tool-chip">Storyline 360</div>
+        <div class="tool-chip">Adobe Illustrator</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 Fanus Michels</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+      let current = 0;
+  const total = 4;
+  const track = document.getElementById('track');
+  const dots = document.querySelectorAll('.dot');
+
+  function goTo(n) {
+    current = ((n % total) + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+  function nextSlide() { goTo(current + 1); }
+  function prevSlide() { goTo(current - 1); }
+
+  let startX = 0;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) diff > 0 ? nextSlide() : prevSlide();
+  });
+
+  let isEn = true;
+  function toggleLang() {
+    isEn = !isEn;
+    document.getElementById('langBtn').textContent = isEn ? 'HE' : 'EN';
+    document.getElementById('page').style.direction = isEn ? 'ltr' : 'rtl';
+    document.documentElement.setAttribute('lang', isEn ? 'en' : 'he');
+    document.getElementById('navAbout').textContent = isEn ? 'About Me' : 'אודות';
+    document.getElementById('navWork').textContent = isEn ? 'Projects' : 'פרויקטים';
+    document.querySelectorAll('[data-he]').forEach(el => {
+      el.textContent = isEn ? el.dataset.en : el.dataset.he;
+    });
+  }
+</script>
+</body>
+</html>

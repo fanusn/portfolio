@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fanus Michels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #F5F4F2; }
+        .topbar { position: sticky; top: 0; z-index: 100; background: #F5F4F2; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 2rem; }
+    .topbar-left { display: flex; align-items: center; gap: 2rem; }
+    .topbar-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: #9E0D17; text-decoration: none; }
+    .topbar-nav { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-link { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: #9E0D17 !important; text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
+    .nav-link:hover { opacity: 1; }
+    .lang-btn { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; color: #9E0D17; background: transparent; border: 1.5px solid #9E0D17; padding: 5px 16px; border-radius: 30px; cursor: pointer; appearance: none; outline: none; transition: background 0.2s; }
+    .lang-btn:hover { background: rgba(158,13,23,0.08); }
+    .topbar-left { display: flex; align-items: center; gap: 2rem; }
+    .topbar-nav { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-link { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: #9E0D17; text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
+    .nav-link:hover { opacity: 1; }
+    .hero { width: 100%; height: 600px; background: #F5F4F2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.5rem; }
+    .hero-sub { font-family: 'Syne', sans-serif; font-weight: 400; font-size: 18px; color: #9E0D17; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0; transition: opacity 1s ease; margin-top: 0.75rem; }
+    .hero-sub.visible { opacity: 0.7; }
+    .hero-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 68px); color: #9E0D17; line-height: 1; white-space: nowrap; border-right: 3px solid #9E0D17; }
+    .section { background: #F5F4F2; padding: 2.5rem 2rem 4rem; }
+    .grid { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .card { background: #fff; border-radius: 14px; overflow: hidden; cursor: pointer; transition: box-shadow 0.2s, transform 0.2s; text-decoration: none; display: block; }
+    .card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.10); transform: translateY(-3px); }
+    .card-img { width: 100%; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .card-img i { font-size: 26px; color: #bbb; }
+    .card-img span { font-size: 11px; color: #bbb; }
+    .card-info { padding: 1rem 1.1rem 1.2rem; }
+    .card-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: #111; }
+    .card-tool { font-size: 11px; color: #999; margin-top: 3px; }
+    .section-label { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; color: #111; max-width: 860px; margin: 0 auto 1.5rem; }
+    footer { background: #F5F4F2; border-top: 0.5px solid rgba(0,0,0,0.08); padding: 1.5rem 2rem; }
+    .footer-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 13px; color: #aaa; }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } .hero-name { font-size: 40px; white-space: normal; } }
+
+    /* ABOUT */
+    .about-section { background: #F5F4F2; padding: 4rem 2rem; min-height: 600px; display: flex; align-items: center; }
+    .about-inner { max-width: 860px; margin: 0 auto; padding-left: 440px; width: 100%; display: flex; flex-direction: column; justify-content: center; }
+    .about-text { font-family: "Syne", sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 64px); color: #111; margin-bottom: 1.2rem; line-height: 1.2; }
+    .about-desc { font-size: 17px; color: #444; line-height: 1.8; max-width: 620px; font-weight: 300; }
+
+    /* FLOATING PHOTO */
+    .photo-float-wrap { position: relative; height: 0; z-index: 10; }
+    .photo-card {
+      position: absolute;
+      left: 12rem;
+      top: -30px;
+      width: 400px;
+      height: 380px;
+      background: #9E0D17;
+      border-radius: 16px;
+      overflow: hidden;
+      transform: translateX(-450px);
+      opacity: 0;
+      transition: transform 0.8s cubic-bezier(0.22,1,0.36,1), opacity 0.8s ease;
+    }
+    .photo-card.visible { transform: translateX(0); opacity: 1; }
+    .photo-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .photo-contact { position: absolute; left: 12rem; top: 350px; width: 400px; padding: 1.5rem; background: #9E0D17; border-radius: 0 0 16px 16px; }
+    .photo-contact-title { font-family: "Syne", sans-serif; font-weight: 800; font-size: 32px; color: #F5F4F2; margin-bottom: 1rem; }
+    .photo-contact-link { display: block; font-size: 17px; color: #F5F4F2; text-decoration: none; margin-bottom: 10px; font-weight: 500; }
+    .photo-contact-link:hover { opacity: 0.8; }
+  </style>
+</head>
+<body>
+<div id="page">
+      <div class="topbar">
+    <div class="topbar-left">
+      <a class="topbar-name" href="index.html">Fanus Michels</a>
+      <div class="topbar-nav">
+        <a class="nav-link" id="navAbout" href="#about-section">About Me</a>
+        <a class="nav-link" id="navWork" href="#work-section">Projects</a>
+      </div>
+    </div>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">HE</button>
+  </div>
+  </div>
+  <div class="hero">
+    <div class="hero-name" id="heroName"></div>
+    <div class="hero-sub" id="heroSub">Portfolio</div>
+  </div>
+
+  <!-- FLOATING PHOTO -->
+  <div class="photo-float-wrap">
+    <div class="photo-card" id="photoCard">
+      <img src="fanus-photo.jpeg" alt="Fanus Michels" />
+    </div>
+    <div class="photo-contact">
+      <div class="photo-contact-title" data-he="צור קשר" data-en="Contact">Contact</div>
+      <a href="mailto:fanusnadawo@gmail.com" class="photo-contact-link">fanusnadawo@gmail.com</a>
+      <a href="tel:0545955190" class="photo-contact-link">054-5955190</a>
+      <a href="https://www.linkedin.com/in/fanus-michels-6a833a259" target="_blank" class="photo-contact-link">LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <div class="about-section" id="about-section">
+    <div class="about-inner">
+      <div class="about-text" id="aboutTitle">Hello,<br>I'm Fanus</div>
+      <div class="about-desc" data-he="מעצבת חוויות דיגיטליות עם תשוקה לעולמות התוכן והתקשורת. נהנית ליצור חוויות בעלות משמעות ולעבוד עם אנשים כדי להפוך רעיונות לפתרונות יצירתיים וממוקדי משתמש." data-en="A digital experience designer with a passion for content and communication. I enjoy creating meaningful experiences and collaborating with people to turn ideas into engaging and user-centered solutions.">A digital experience designer with a passion for content and communication. I enjoy creating meaningful experiences and collaborating with people to turn ideas into engaging and user-centered solutions.</div>
+    </div>
+  </div>
+
+  <div class="section" id="work-section">
+    <div class="section-label" id="sectionLabel">Projects</div>
+    <div class="grid">
+      <a class="card" href="interactive-conjugation.html">
+        <div class="card-img"><img src="conjugation-1.jpeg" alt="פעלים בזמן עבר" /></div>
+        <div class="card-info">
+          <div class="card-title" data-he="הווה לעומת עבר" data-en="Present vs Past">Present vs Past</div>
+          <div class="card-tool">Storyline 360</div>
+        </div>
+      </a>
+      <a class="card" href="sigd.html">
+        <div class="card-img"><img src="sigd-1.png" alt="סיגד" /></div>
+        <div class="card-info">
+          <div class="card-title" data-he="סיגד" data-en="Sigd">Sigd</div>
+          <div class="card-tool">Canva</div>
+        </div>
+      </a>
+      <a class="card" href="forest-signs.html">
+        <div class="card-img"><img src="forest-1.jpeg" alt="מותר ואסור ביער" /></div>
+        <div class="card-info">
+          <div class="card-title" data-he="מותר ואסור ביער" data-en="Signs in the Forest">Signs in the Forest</div>
+          <div class="card-tool">Storyline 360</div>
+        </div>
+      </a>
+      <a class="card" href="hit-and-eat.html">
+        <div class="card-img"><img src="hit-eat.png" alt="HIT&EAT" /></div>
+        <div class="card-info">
+          <div class="card-title">HIT&EAT</div>
+          <div class="card-tool">Adobe XD</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 Fanus Michels</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const typingText = 'Fanus Michels';
+  const heroEl = document.getElementById('heroName');
+
+  if (sessionStorage.getItem('visited')) {
+    // כניסה חוזרת — מוצג הכל מיד
+    heroEl.textContent = typingText;
+    heroEl.style.borderRight = 'none';
+    document.getElementById('photoCard').classList.add('visible');
+    document.getElementById('heroSub').classList.add('visible');
+  } else {
+    // כניסה ראשונה — אנימציה
+    sessionStorage.setItem('visited', 'true');
+    heroEl.style.borderRight = '3px solid #9E0D17';
+
+    let ti = 0;
+    let cursorOn = true;
+    const cursorTimer = setInterval(() => {
+      if (ti >= typingText.length) { clearInterval(cursorTimer); heroEl.style.borderColor = 'transparent'; return; }
+      cursorOn = !cursorOn;
+      heroEl.style.borderColor = cursorOn ? '#9E0D17' : 'transparent';
+    }, 500);
+
+    function typeChar() {
+      if (ti < typingText.length) {
+        heroEl.textContent += typingText[ti];
+        ti++;
+        setTimeout(typeChar, 110 + Math.random() * 50);
+      } else {
+        setTimeout(() => {
+          document.getElementById('photoCard').classList.add('visible');
+    document.getElementById('heroSub').classList.add('visible');
+        }, 200);
+      }
+    }
+    setTimeout(typeChar, 600);
+  }
+
+  let isEn = true;
+  function toggleLang() {
+    isEn = !isEn;
+    document.getElementById('langBtn').textContent = isEn ? 'HE' : 'EN';
+    document.getElementById('page').style.direction = isEn ? 'ltr' : 'rtl';
+    document.documentElement.setAttribute('lang', isEn ? 'en' : 'he');
+    document.getElementById('aboutTitle').innerHTML = isEn ? 'Hello,<br>I\'m Fanus' : 'היי,<br>אני פאנוס';
+    document.getElementById('sectionLabel').textContent = isEn ? 'Projects' : 'הפרויקטים שלי';
+    document.getElementById('navAbout').textContent = isEn ? 'About Me' : 'אודות';
+
+    document.getElementById('navWork').textContent = isEn ? 'Projects' : 'פרויקטים';
+    document.querySelectorAll('[data-he]').forEach(el => {
+      el.textContent = isEn ? el.dataset.en : el.dataset.he;
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIT&EAT — Fanus Michels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #F5F4F2; color: #111; }
+        .topbar { position: sticky; top: 0; z-index: 100; background: #F5F4F2; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 2rem; }
+    .topbar-left { display: flex; align-items: center; gap: 2rem; }
+    .topbar-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: #9E0D17; text-decoration: none; }
+    .topbar-nav { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-link { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: #9E0D17 !important; text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
+    .nav-link:hover { opacity: 1; }
+    .lang-btn { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; color: #9E0D17; background: transparent; border: 1.5px solid #9E0D17; padding: 5px 16px; border-radius: 30px; cursor: pointer; appearance: none; outline: none; transition: background 0.2s; }
+    .lang-btn:hover { background: rgba(158,13,23,0.08); }
+    .page { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .project-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(36px, 6vw, 56px); color: #9E0D17; margin-bottom: 2rem; line-height: 1.1; }
+    .project-img { width: 100%; border-radius: 14px; overflow: hidden; margin-bottom: 2.5rem; background: #e8f5fd; min-height: 340px; display: flex; align-items: center; justify-content: center; }
+    .project-img img { width: 100%; height: 100%; object-fit: cover; }
+    .project-img .ph { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #bbb; font-size: 13px; }
+    .project-img .ph i { font-size: 32px; }
+    .section-block { margin-bottom: 2.5rem; }
+    .section-block h2 { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 0.75rem; }
+    .section-block p { font-size: 15px; line-height: 1.8; color: #111; }
+    .tools { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tool-chip { font-size: 12px; padding: 5px 14px; border-radius: 30px; border: 1.5px solid #111; color: #111; font-weight: 500; }
+    .link-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: #F5F4F2; background: #9E0D17; padding: 10px 24px; border-radius: 30px; text-decoration: none; transition: opacity 0.2s; }
+    .link-btn:hover { opacity: 0.85; }
+    .no-link { font-size: 13px; color: #999; }
+    footer { background: #F5F4F2; border-top: 0.5px solid rgba(0,0,0,0.08); padding: 1.5rem 2rem; }
+    .footer-inner { max-width: 760px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 13px; color: #aaa; }
+    @media (max-width: 560px) { .page { padding: 2rem 1.25rem 4rem; } }
+  </style>
+</head>
+<body>
+<div id="page" style="direction:ltr;">
+      <div class="topbar">
+    <div class="topbar-left">
+      <a class="topbar-name" href="index.html">Fanus Michels</a>
+      <div class="topbar-nav">
+        <a class="nav-link" id="navAbout" href="index.html#about-section">About Me</a>
+        <a class="nav-link" id="navWork" href="index.html#work-section">Projects</a>
+      </div>
+    </div>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">HE</button>
+  </div>
+  </div>
+  </div>
+
+  <div class="page">
+    <div class="project-title" data-he="HIT&EAT" data-en="HIT&EAT">HIT&EAT</div>
+
+    <div class="project-img" style="background:#00B7A8;">
+      <img src="hit-eat.png" alt="HIT&amp;EAT" />
+    </div>
+
+    <div class="section-block">
+      <h2 data-he="תיאור" data-en="About">About</h2>
+      <p data-he="אפליקציה לסטודנטים לגילוי ומציאת אוכל בקמפוס — כוללת את כל הקפיטריות, תפריטים מפורטים עם מחירים ורכיבים, מיקומים ושעות פתיחה. בנוסף, פיצ'ר חכם שעוזר לך להחליט מה כדאי לאכול." data-en="A campus food discovery app for students — includes all cafeterias, detailed menus with prices and ingredients, locations and opening hours. Also features a smart assistant that helps you decide what to eat.">A campus food discovery app for students — includes all cafeterias, detailed menus with prices and ingredients, locations and opening hours. Also features a smart assistant that helps you decide what to eat.</p>
+    </div>
+
+    <div class="section-block">
+      <h2 data-he="כלים" data-en="Tools">Tools</h2>
+      <div class="tools"><div class="tool-chip">Adobe XD</div></div>
+    </div>
+
+    <div class="section-block">
+      <h2 data-he="קישור לפרויקט" data-en="Project Link">Project Link</h2>
+      <a class="link-btn" href="https://xd.adobe.com/view/ca60f5ea-f3f0-4ede-ae9b-b767a900acea-9f33/" target="_blank"><span data-he="צפייה בפרויקט" data-en="View Project">View Project</span></a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 Fanus Michels</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  let isEn = true;
+  function toggleLang() {
+    isEn = !isEn;
+    document.getElementById('langBtn').textContent = isEn ? 'HE' : 'EN';
+    document.getElementById('page').style.direction = isEn ? 'ltr' : 'rtl';
+    document.documentElement.setAttribute('lang', isEn ? 'en' : 'he');
+    document.getElementById('navAbout').textContent = isEn ? 'About Me' : 'אודות';
+    document.getElementById('navWork').textContent = isEn ? 'Projects' : 'פרויקטים';
+    document.querySelectorAll('[data-he]').forEach(el => {
+      el.textContent = isEn ? el.dataset.en : el.dataset.he;
+    });
+  }
+</script>
+</body>
+</html>
